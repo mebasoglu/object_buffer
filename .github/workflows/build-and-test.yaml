@@ -18,7 +18,7 @@ jobs:
           - humble
         include:
           - rosdistro: humble
-            container: ghcr.io/autowarefoundation/autoware:universe-devel
+            container: ghcr.io/autowarefoundation/autoware:universe-devel-20241218-amd64
             build-depends-repos: build_depends.repos
     steps:
       - name: Check out repository
