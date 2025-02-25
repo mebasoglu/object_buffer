@@ -5,6 +5,8 @@
 
 namespace object_buffer
 {
+using autoware_perception_msgs::msg::DetectedObject;
+using autoware_perception_msgs::msg::DetectedObjects;
 
 class DetectedObjectsBuffer : public BaseBuffer<DetectedObjects>
 {

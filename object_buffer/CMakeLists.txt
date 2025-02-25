@@ -14,13 +14,22 @@ endif()
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
-ament_auto_add_library(${PROJECT_NAME} SHARED
+ament_auto_add_library(${PROJECT_NAME}_detected_objects SHARED
   src/detected_objects_buffer.cpp
 )
 
-rclcpp_components_register_node(${PROJECT_NAME}
+rclcpp_components_register_node(${PROJECT_NAME}_detected_objects
   PLUGIN "object_buffer::DetectedObjectsBuffer"
-  EXECUTABLE object_buffer_node
+  EXECUTABLE detected_objects_object_buffer_node
+)
+
+ament_auto_add_library(${PROJECT_NAME}_detected_objects_with_feature SHARED
+  src/detected_objects_with_feature_buffer.cpp
+)
+
+rclcpp_components_register_node(${PROJECT_NAME}_detected_objects_with_feature
+  PLUGIN "object_buffer::DetectedObjectsWithFeatureBuffer"
+  EXECUTABLE detected_objects_with_feature_object_buffer_node
 )
 
 if(BUILD_TESTING)

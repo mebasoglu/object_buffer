@@ -10,7 +10,7 @@ namespace object_buffer
 using autoware::universe_utils::updateParam;
 
 DetectedObjectsBuffer::DetectedObjectsBuffer(const rclcpp::NodeOptions & node_options)
-: BaseBuffer<DetectedObjects>("object_buffer", node_options)
+: BaseBuffer<DetectedObjects>("detected_objects_buffer", node_options)
 {
   RCLCPP_INFO_STREAM(get_logger(), "Hello");
 
