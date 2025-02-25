@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <node_container pkg="rclcpp_components" exec="component_container_mt" name="object_buffer_container" namespace="">
+    <composable_node pkg="object_buffer"
+                     plugin="object_buffer::ObjectBuffer" name="object_buffer"
+                     namespace="">
+      <remap from="~/input/objects" to="/perception/object_recognition/detection/radar/scan/objects"/>
+      <!--      <remap from="~/output/objects" to=""/>-->
+      <!--      <param from=""/>-->
+    </composable_node>
+  </node_container>
+</launch>
