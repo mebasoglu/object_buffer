@@ -1,4 +1,4 @@
-#include "object_buffer.hpp"
+#include "detected_objects_buffer.hpp"
 
 #include "autoware/object_recognition_utils/object_recognition_utils.hpp"
 #include "autoware/universe_utils/ros/update_param.hpp"
@@ -10,7 +10,7 @@ namespace object_buffer
 using autoware::universe_utils::updateParam;
 
 ObjectBuffer::ObjectBuffer(const rclcpp::NodeOptions & node_options)
-: Node("object_buffer", node_options)
+: BaseBuffer<DetectedObjects>("object_buffer", node_options)
 {
   RCLCPP_INFO_STREAM(get_logger(), "Hello");
 
