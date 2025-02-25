@@ -10,6 +10,8 @@
 
   <buildtool_depend>ament_cmake_auto</buildtool_depend>
 
+  <depend>autoware_object_recognition_utils</depend>
+  <depend>autoware_perception_msgs</depend>
   <depend>rclcpp</depend>
   <depend>rclcpp_components</depend>
 
