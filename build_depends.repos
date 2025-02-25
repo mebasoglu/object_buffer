@@ -1,4 +1,8 @@
 repositories:
+  autoware/universe:
+    type: git
+    url: https://github.com/autowarefoundation/autoware.universe.git
+    version: 0.41.0
   autoware/tier4_autoware_msgs:
     type: git
     url: https://github.com/tier4/tier4_autoware_msgs.git
