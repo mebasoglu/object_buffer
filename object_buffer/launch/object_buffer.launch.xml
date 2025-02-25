@@ -6,7 +6,7 @@
                      namespace="">
       <remap from="~/input/objects" to="/perception/object_recognition/detection/radar/scan/objects"/>
       <!--      <remap from="~/output/objects" to=""/>-->
-      <!--      <param from=""/>-->
+      <param from="$(find-pkg-share object_buffer)/config/object_buffer.param.yaml"/>
     </composable_node>
   </node_container>
 </launch>

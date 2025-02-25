@@ -1,0 +1,8 @@
+/**:
+  ros__parameters:
+    is_fixed_label: true
+    fixed_label: "CAR"
+    is_fixed_size: true
+    size_x: 4.0 # [m]
+    size_y: 1.5 # [m]
+    size_z: 1.5 # [m]
