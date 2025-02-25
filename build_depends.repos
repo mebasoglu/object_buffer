@@ -1,1 +1,5 @@
 repositories:
+  autoware/tier4_autoware_msgs:
+    type: git
+    url: https://github.com/tier4/tier4_autoware_msgs.git
+    version: v0.41.0
