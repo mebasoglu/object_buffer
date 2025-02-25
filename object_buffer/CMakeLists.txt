@@ -14,6 +14,15 @@ endif()
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
+ament_auto_add_library(${PROJECT_NAME} SHARED
+  src/object_buffer.cpp
+)
+
+rclcpp_components_register_node(${PROJECT_NAME}
+  PLUGIN "object_buffer::ObjectBuffer"
+  EXECUTABLE object_buffer_node
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
