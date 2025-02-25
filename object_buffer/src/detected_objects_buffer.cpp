@@ -9,13 +9,13 @@ namespace object_buffer
 {
 using autoware::universe_utils::updateParam;
 
-ObjectBuffer::ObjectBuffer(const rclcpp::NodeOptions & node_options)
+DetectedObjectsBuffer::DetectedObjectsBuffer(const rclcpp::NodeOptions & node_options)
 : BaseBuffer<DetectedObjects>("object_buffer", node_options)
 {
   RCLCPP_INFO_STREAM(get_logger(), "Hello");
 
   set_param_res_ = this->add_on_set_parameters_callback(
-    std::bind(&ObjectBuffer::onSetParam, this, std::placeholders::_1));
+    std::bind(&DetectedObjectsBuffer::onSetParam, this, std::placeholders::_1));
 
   node_param_.is_fixed_label = declare_parameter<bool>("is_fixed_label");
   node_param_.fixed_label = declare_parameter<std::string>("fixed_label");
@@ -26,12 +26,12 @@ ObjectBuffer::ObjectBuffer(const rclcpp::NodeOptions & node_options)
 
   sub_objects_ = create_subscription<DetectedObjects>(
     "~/input/objects", rclcpp::QoS{1},
-    std::bind(&ObjectBuffer::onObjects, this, std::placeholders::_1));
+    std::bind(&DetectedObjectsBuffer::onObjects, this, std::placeholders::_1));
 
   pub_objects_ = create_publisher<DetectedObjects>("~/output/objects", 1);
 }
 
-void ObjectBuffer::onObjects(const DetectedObjects & msg) const
+void DetectedObjectsBuffer::onObjects(const DetectedObjects & msg) const
 {
   DetectedObjects output_objects;
   output_objects.header = msg.header;
@@ -53,7 +53,7 @@ void ObjectBuffer::onObjects(const DetectedObjects & msg) const
   pub_objects_->publish(output_objects);
 }
 
-rcl_interfaces::msg::SetParametersResult ObjectBuffer::onSetParam(
+rcl_interfaces::msg::SetParametersResult DetectedObjectsBuffer::onSetParam(
   const std::vector<rclcpp::Parameter> & params)
 {
   rcl_interfaces::msg::SetParametersResult result;
@@ -85,4 +85,4 @@ rcl_interfaces::msg::SetParametersResult ObjectBuffer::onSetParam(
 }  // namespace object_buffer
 
 #include "rclcpp_components/register_node_macro.hpp"
-RCLCPP_COMPONENTS_REGISTER_NODE(object_buffer::ObjectBuffer)
+RCLCPP_COMPONENTS_REGISTER_NODE(object_buffer::DetectedObjectsBuffer)

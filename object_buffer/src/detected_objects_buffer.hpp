@@ -6,10 +6,10 @@
 namespace object_buffer
 {
 
-class ObjectBuffer : public BaseBuffer<DetectedObjects>
+class DetectedObjectsBuffer : public BaseBuffer<DetectedObjects>
 {
 public:
-  explicit ObjectBuffer(const rclcpp::NodeOptions & node_options);
+  explicit DetectedObjectsBuffer(const rclcpp::NodeOptions & node_options);
 
 private:
   void onObjects(const DetectedObjects & msg) const;
