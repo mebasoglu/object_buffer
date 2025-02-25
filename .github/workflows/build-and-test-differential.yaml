@@ -14,7 +14,7 @@ jobs:
           - humble
         include:
           - rosdistro: humble
-            container: ros:humble
+            container: ghcr.io/autowarefoundation/autoware:universe-devel
             build-depends-repos: build_depends.repos
     steps:
       - name: Check out repository
@@ -57,7 +57,7 @@ jobs:
 
   clang-tidy-differential:
     runs-on: ubuntu-latest
-    container: ros:humble
+    container: ghcr.io/autowarefoundation/autoware:universe-devel
     needs: build-and-test-differential
     steps:
       - name: Check out repository
