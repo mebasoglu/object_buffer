@@ -37,12 +37,16 @@ void ObjectBuffer::onObjects(const DetectedObjects & msg) const
   output_objects.header = msg.header;
 
   for (auto object : msg.objects) {
-    object.classification.at(0).label =
-      autoware::object_recognition_utils::toLabel(node_param_.fixed_label);
-    object.shape.type = autoware_perception_msgs::msg::Shape::BOUNDING_BOX;
-    object.shape.dimensions.x = node_param_.size_x;
-    object.shape.dimensions.y = node_param_.size_y;
-    object.shape.dimensions.z = node_param_.size_z;
+    if (node_param_.is_fixed_label) {
+      object.classification.at(0).label =
+        autoware::object_recognition_utils::toLabel(node_param_.fixed_label);
+    }
+    if (node_param_.is_fixed_size) {
+      object.shape.type = autoware_perception_msgs::msg::Shape::BOUNDING_BOX;
+      object.shape.dimensions.x = node_param_.size_x;
+      object.shape.dimensions.y = node_param_.size_y;
+      object.shape.dimensions.z = node_param_.size_z;
+    }
     output_objects.objects.push_back(object);
   }
 
