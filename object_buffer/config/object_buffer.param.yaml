@@ -2,7 +2,9 @@
   ros__parameters:
     is_fixed_label: true
     fixed_label: "CAR"
-    is_fixed_size: true
+    is_fixed_size: false
     size_x: 4.0 # [m]
     size_y: 1.5 # [m]
     size_z: 1.5 # [m]
+    is_min_size: true
+    min_size: 5.0

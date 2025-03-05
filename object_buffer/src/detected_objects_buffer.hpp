@@ -26,6 +26,8 @@ private:
     double size_x{};
     double size_y{};
     double size_z{};
+    bool is_min_size{};
+    double min_size{};
   };
   NodeParam node_param_{};
 };
